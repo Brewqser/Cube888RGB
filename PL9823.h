@@ -5,15 +5,26 @@
 
 #define numLED 1
 
-// unia na dane
+// globals for cube
+#define maxX = 1;
+#define maxY = 1;
+#define maxZ = 1;
 
-uint32_t data[1536]; // 64 * 24 
+// dane
+
+static uint32_t data[1536]; // 64 * 24 
 
 // alfabet template
 
+// aviable function
+void initPL9823(void);
+void opticalTest(void);
 void updateLeds(void);
-void setColor(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
+void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
+void setColor(int x, int y, int z, int color);
 void demo(void);
 
+void delay(int count);
 
-#endif
+
+#endif /* rgbledlib_h*/
