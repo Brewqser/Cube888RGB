@@ -11,8 +11,7 @@
 #define maxZ = 1;
 
 // dane
-
-static uint32_t data[1536]; // 64 * 24 
+static uint32_t data[1536]; // 64 * 24 ( ile diod * 24 )  
 
 // alfabet template
 
@@ -22,9 +21,9 @@ void opticalTest(void);
 void updateLeds(void);
 void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
 void setColor(int x, int y, int z, int color);
-void demo(void);
-
 void delay(int count);
 
+
+void demo(void);
 
 #endif /* rgbledlib_h*/

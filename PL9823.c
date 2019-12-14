@@ -2,24 +2,10 @@
 
 void initPL9823(void)
 {
-	/*
-	int i;
-	
-	SIM->SCGC5 |= SIM_SCGC5_PORTE_MASK;
-	
-	PTE->PDDR = 0xffffffff;
-	
-	for (i = 0 ; i<32 ; i++)
-	{	
-		PORTE->PCR[i] = PORT_PCR_MUX(1);
-	}
-	
-	PTE->PCOR = 0xffffffff;
-	
-	*/
+	// portB0 
 	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK;
 	PORTB->PCR[0] = PORT_PCR_MUX(1);
-	PTB->PDDR |= (1UL );  // PortE 31
+	PTB->PDDR |= (1UL );
 }
 
 void opticalTest(void)
