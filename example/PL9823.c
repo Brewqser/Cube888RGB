@@ -49,6 +49,40 @@ void updateLeds(void)
 	__enable_irq();	// anable interrupts
 }
 
+void setColor(int x, int y, int z, int color)
+{
+	/*--------------------------------------------------------------------------
+	seting color on diode with position x y z ( for now x = 1 )
+	--------------------------------------------------------------------------*/
+	unsigned int tmp = 0;
+	int i = 0;
+	
+	for (tmp = 0; tmp <= 23; tmp++)
+	{
+		if (y % 2 == 1)
+		{
+			i = 24 * ((y-1)*(Zsize) + (z-1)) + tmp;
+			data[i] = (color & (1 << (23 - tmp)) ? 1 : 0);
+		}
+		else
+		{
+			i = 24 * (y * Zsize - z) + tmp;  
+			data[i] = (color & (1 << (23 - tmp)) ? 1 : 0);
+		}
+	}
+}
+
+void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b)
+{
+	/*--------------------------------------------------------------------------
+	seting color with specified r g b on diode with position x y z 
+	--------------------------------------------------------------------------*/
+	int kol = (r << 16) + (g << 8) + b;
+
+	setColor(x,y,z,kol);
+}
+
+
 void delay(int count)
 {
 	/*--------------------------------------------------------------------------
@@ -59,48 +93,30 @@ void delay(int count)
 	for(x=0; x < count; x++){}
 }
 
-// end done 
-
 void opticalTest(void)
 {
-	int tmp = ( 1 << 24);
+	/*--------------------------------------------------------------------------
+	testing each bit in conected diodes with some delay
+	--------------------------------------------------------------------------*/
+	int tmp = (1 << 24);
+	int i=1;
+	int j=1;
+
 	while (1)
 	{
 		tmp/=2;
-		setColor(1,1,1,tmp);
+		for(i = 1; i <= Ysize; i++)
+		{
+			for(j = 1; j <= Zsize; j++)
+			{
+				setColor(1,i,j,tmp);
+			}
+		}
 		updateLeds();
-		tmp = ( tmp == 0 ? (1 << 24) : tmp );
+		tmp = (tmp == 1 ? (1 << 24) : tmp);
 		delay(10000000);
 	}
 }
 
+// end done 
 
-
-void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b)
-{
-	int tmp = 0;
-	int kol = (r << 16) + (g << 8) + b;
-	
-	for ( tmp = 0; tmp <= 23 ;tmp++ )
-	{
-		if (kol & (1 << (23 - tmp)))
-			data[(z-1)*24 + tmp] = (1 << 0);
-		else 
-			data[(z-1)*24 + tmp] = 0;
-	}
-}
-
-void setColor(int x, int y, int z, int color)
-{
-	int tmp = 0;
-	int kol = color;
-	
-	for ( tmp = 0; tmp <= 23 ;tmp++ )
-	{
-		if (kol & (1 << (23 - tmp)))
-			data[(z-1)*24 + tmp] = (1 << 0);
-		else 
-			data[(z-1)*24 + tmp] = 0;
-	}
-
-}

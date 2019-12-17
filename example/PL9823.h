@@ -21,8 +21,8 @@ static uint32_t data[Ysize * Zsize * 24]; // data for display on LEDs
 // aviable function
 void initPL9823(void);
 void updateLeds(void);
-void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
 void setColor(int x, int y, int z, int color);
+void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
 void delay(int count);
 
 void opticalTest(void);
