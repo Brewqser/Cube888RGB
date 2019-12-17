@@ -5,25 +5,28 @@
 
 #define numLED 1
 
-// globals for cube
-#define maxX = 1;
-#define maxY = 1;
-#define maxZ = 1;
+// controls variables 
 
-// dane
-static uint32_t data[1536]; // 64 * 24 ( ile diod * 24 )  
+#define Xsize 1 // number of walls
+#define Ysize 8 // height of a single wall
+#define Zsize 8 // single wall length
 
-// alfabet template
+// end controls variables 
+
+// data
+static uint32_t data[Ysize * Zsize * 24]; // data for display on LEDs
+
+// end data
 
 // aviable function
 void initPL9823(void);
-void opticalTest(void);
 void updateLeds(void);
 void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
 void setColor(int x, int y, int z, int color);
 void delay(int count);
 
+void opticalTest(void);
 
-void demo(void);
+// end aviable function
 
 #endif /* rgbledlib_h*/
