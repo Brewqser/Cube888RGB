@@ -6,7 +6,10 @@ The goal of the project is to create a relatively simple library to support prog
 
 # PL9823 datasheet
 
-````
-https://cdn.instructables.com/ORIG/FW0/YN1X/IHDUL683/FW0YN1XIHDUL683.pdf
-````
+[See datasheet](https://cdn.instructables.com/ORIG/FW0/YN1X/IHDUL683/FW0YN1XIHDUL683.pdf)
+ 
+# User Manual
 
+Wiki was created as a manual that contains explanations of the functions contained in the library and examples of their usage.
+
+[Wisit wiki](https://github.com/Brewqser/Cube888RGB.wiki.git)
