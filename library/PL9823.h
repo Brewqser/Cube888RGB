@@ -8,8 +8,10 @@
 #define Xsize 1 // number of walls
 #define Ysize 8 // height of a single wall
 #define Zsize 8 // single wall length
-#define numLetters 64 // number of all letters
+#define numLetters 65 // number of all letters
 #define tapeLength 10 // length of letters tape (how many letters)
+
+static int pinTable[Xsize] = {0}; // table that conteins pin numbers for walls 
 
 // end control variables 
 
@@ -35,7 +37,9 @@ void clearAll(void);
 void initLetters(void);
 int chartoletter(char x);
 void makeTape(const uint8_t *a);
-void showTape(int n, int color);
+void showTape(int x, int n, int color);
+
+void makePixelArt(int x, const int* table, int ys, int zs);
 
 void delay(int count);
 
