@@ -82,6 +82,38 @@ void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b)
 	setColor(x,y,z,kol);
 }
 
+void setWhite(int x, int y, int z)
+{
+	/*--------------------------------------------------------------------------
+	seting White on diode with position x y z 
+	--------------------------------------------------------------------------*/
+	int kol = (255 << 16) + (255 << 8) + 255;
+	
+	setColor(x,y,z,kol);
+}
+
+void clear(int x, int y, int z)
+{
+	/*--------------------------------------------------------------------------
+	seting 0 (clear) on diode with position x y z 
+	--------------------------------------------------------------------------*/
+	int kol = 0;
+	
+	setColor(x,y,z,kol);
+}
+
+void clearAll()
+{
+	/*--------------------------------------------------------------------------
+	seting 0 (clear) on diode all LEDs 
+	--------------------------------------------------------------------------*/
+	int i = 0;
+	
+	for (i = 0; i < Ysize * Zsize * 24; i++)
+	{
+		data[i] = 0;
+	}
+}
 
 void delay(int count)
 {

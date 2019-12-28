@@ -23,10 +23,16 @@ void initPL9823(void);
 void updateLeds(void);
 void setColor(int x, int y, int z, int color);
 void setRGB(int x, int y, int z, uint8_t r, uint8_t g, uint8_t b);
+void setWhite(int x, int y, int z);
+void clear(int x, int y, int z);
+void clearAll();
+
 void delay(int count);
 
 void opticalTest(void);
 
 // end aviable function
+
+
 
 #endif /* rgbledlib_h*/
