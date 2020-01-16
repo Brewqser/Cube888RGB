@@ -598,22 +598,24 @@ void makeTape(const uint8_t *a)
 	int z = 0;
 	int j = 0;
 	int i = 0;
-	tmpTapeLength = 0;
+	int tmp = 0;
+	tapeLength = 0;
 
-	while ( *a != '\0')
+	while ( *(a + tmp) != '\0')
 	{
 			for (j=7; j>=0; j--)
 			{
 					for (i=0; i<5; i++)
 					{
-							table[j][tmpTapeLength + i] = ((letters[chartoletter(a[z])][i] & (1 << j)) >> j );
+							table[j][tapeLength + i] = ((letters[chartoletter(*(a + tmp))][i] & (1 << j)) >> j );
 					}
 			}
 			z++;
-			a++;
-			tmpTapeLength += 6;
+			tmp++;
+			tapeLength += 6;
 	}
-	tmpTapeLength--;
+	tapeLength--;
+	//tapeLength = tmpTapeLength;
 }
 
 void showTape(int x, int n, int color)
@@ -623,17 +625,22 @@ void showTape(int x, int n, int color)
 	--------------------------------------------------------------------------*/
 	int j = 0;
 	int i = 0;
+	int k = 1;
 
-	for (j = 7; j >= 0 ;j--)
+	for (j = 8; j >= 1 ;j--)
 	{
+			k = 1;
 			for(i = n; i < n+8; i++)
 			{
-				 if (table[j][i%tapeLength] == 1)
-						setColor(x, j, i%tapeLength, color);
+				 if (table[j-1][i%tapeLength] == 1)
+						setColor(x, j, k, color);
 				 else 
-						setColor(x, j, i%tapeLength, 0x000000);
+						setColor(x, j, k, 0x000000);
+				 
+				 k=k+1;
 			}
 	}
+	
 }
 
 void makePixelArt(int x, const int* table, int ys, int zs)
@@ -644,9 +651,13 @@ void makePixelArt(int x, const int* table, int ys, int zs)
 	int i=0;
 	int j=0;
 
+	int tmp =0;
   for (i = 0; i <  ys; i++) 
       for (j = 0; j < zs; j++) 
-					setColor(x,i+1,j+1, *table++);
+			{
+				setColor(x,i+1,j+1, *(table+tmp));
+				tmp++;
+			}
 }
 
 void delay(int count)
@@ -682,7 +693,7 @@ void opticalTest(void)
 		}
 		updateLeds();
 		tmp = (tmp == 1 ? (1 << 24) : tmp);
-		delay(10000000);
+		delay(1000000);
 	}
 }
 

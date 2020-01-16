@@ -9,7 +9,6 @@
 #define Ysize 8 // height of a single wall
 #define Zsize 8 // single wall length
 #define numLetters 65 // number of all letters
-#define tapeLength 10 // length of letters tape (how many letters)
 
 static int pinTable[Xsize] = {0}; // table that conteins pin numbers for walls 
 
@@ -19,8 +18,8 @@ static int pinTable[Xsize] = {0}; // table that conteins pin numbers for walls
 
 static uint32_t data[Ysize * Zsize * 24]; // data for display on LEDs
 static uint8_t letters[numLetters][5];
-static int tmpTapeLength = 0;
-static int table[8][tapeLength*6-1];
+static int tapeLength = 0;
+static int table[8][200];
 
 // end data
 
