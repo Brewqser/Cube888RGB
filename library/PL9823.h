@@ -37,6 +37,7 @@ void initLetters(void);
 int chartoletter(char x);
 void makeTape(const uint8_t *a);
 void showTape(int x, int n, int color);
+void showTapeColored(int x, int n,const int *colors);
 
 void makePixelArt(int x, const int* table, int ys, int zs);
 

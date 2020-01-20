@@ -6,7 +6,7 @@ int main (void)
 	
 	int i=0;
 	initLetters();
-	makeTape("I love ELE   ");
+	makeTape("I < ELE   ");
 	i=tapeLength - 2;
 
 	while(1)

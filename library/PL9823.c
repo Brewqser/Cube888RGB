@@ -52,7 +52,7 @@ void updateLeds(void)
 void setColor(int x, int y, int z, int color)
 {
 	/*--------------------------------------------------------------------------
-	seting color on diode with position x y z ( for now x = 1 )
+	seting color on diode with position x y z
 	--------------------------------------------------------------------------*/
 	unsigned int tmp = 0;
 	int i = 0;
@@ -634,6 +634,34 @@ void showTape(int x, int n, int color)
 			{
 				 if (table[j-1][i%tapeLength] == 1)
 						setColor(x, j, k, color);
+				 else 
+						setColor(x, j, k, 0x000000);
+				 
+				 k=k+1;
+			}
+	}
+	
+}
+
+void showTapeColored(int x, int n,const int *colors)
+{
+  /*--------------------------------------------------------------------------
+	setting part of the table (from n yo n+7)	on data table 
+	with specified colors
+	
+	colors come from colors table that mast be defined in main !!!
+	--------------------------------------------------------------------------*/
+	int j = 0;
+	int i = 0;
+	int k = 1;
+	
+	for (j = 8; j >= 1 ;j--)
+	{
+			k = 1;
+			for(i = n; i < n+8; i++)
+			{
+				 if (table[j-1][i%tapeLength] == 1)
+						setColor(x, j, k, *(colors + (i%tapeLength)/6));
 				 else 
 						setColor(x, j, k, 0x000000);
 				 
