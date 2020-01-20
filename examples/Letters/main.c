@@ -7,14 +7,15 @@ int main (void)
 	int i=0;
 	initLetters();
 	makeTape("I love ELE   ");
-	
+	i=tapeLength - 2;
+
 	while(1)
 	{
-    showTape(1,i,0x0000ff);
+		clearAll();
+    		showTape(1,i,0x0000ff);
 		updateLeds();
 		i++;
-		i%=14;
-		delay(100000);
+		i%=tapeLength;
+		delay(2000000);
 	}
 }
-
