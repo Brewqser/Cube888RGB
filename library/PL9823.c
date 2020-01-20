@@ -679,12 +679,10 @@ void makePixelArt(int x, const int* table, int ys, int zs)
 	int i=0;
 	int j=0;
 
-	int tmp =0;
-  for (i = 0; i <  ys; i++) 
-      for (j = 0; j < zs; j++) 
+  for (i = 1; i <= ys; i++) 
+      for (j = 1; j <= zs; j++) 
 			{
-				setColor(x,i+1,j+1, *(table+tmp));
-				tmp++;
+				setColor(x,ys - i + 1,j, *(table+((i-1)*zs)+(j-1)));
 			}
 }
 
