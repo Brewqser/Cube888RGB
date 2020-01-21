@@ -4,11 +4,14 @@
 
 void initPL9823(void)
 {
+	int i=0;
 	// portB0 
 	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK;
-	PORTB->PCR[0] = PORT_PCR_MUX(1);
-	PTB->PDDR |= (1UL);
-	
+	for(i=0;i<Xsize;i++)
+	{
+		PORTB->PCR[pinTable[i]] = PORT_PCR_MUX(1);
+		PTB->PDDR |= (1UL << pinTable[i]);
+	}
 	/*--------------------------------------------------------------------------
 	here you can add port E initialization
 	port E have 8 GPIO pins on KL46Z board 
