@@ -70,7 +70,7 @@ void setColor(int x, int y, int z, int color)
 		{
 			i = 24 * (y * Zsize - z) + tmp;
 		}
-		data[i] = ( (color & (1 << (23 - tmp)) ? 1 : 0) ) << pinTable[x-1];
+		data[i] |= (((color & (1 << (23 - tmp)) ? 1 : 0)) << pinTable[x-1]);
 	}
 }
 
@@ -99,9 +99,28 @@ void clear(int x, int y, int z)
 	/*--------------------------------------------------------------------------
 	seting 0 (clear) on diode with position x y z 
 	--------------------------------------------------------------------------*/
-	int kol = 0;
+	int color = 0;
+	unsigned int tmp = 0;
+	int i = 0;
 	
-	setColor(x,y,z,kol);
+	for (tmp = 0; tmp <= 23; tmp++)
+	{
+		if (y % 2 == 1)
+		{
+			i = 24 * ((y-1)*(Zsize) + (z-1)) + tmp;
+		}
+		else
+		{
+			i = 24 * (y * Zsize - z) + tmp;
+		}
+		
+		/*--------------------------------------------------------------------------
+		here is diffrens betwen setColor and clear 
+		and here |= is =
+		--------------------------------------------------------------------------*/
+		
+		data[i] = (((color & (1 << (23 - tmp)) ? 1 : 0)) << pinTable[x-1]); 
+	}
 }
 
 void clearAll(void)
@@ -712,6 +731,7 @@ void opticalTest(void)
 	while (1)
 	{
 		tmp/=2;
+		clearAll();
 		for(i = 1; i <= Xsize; i++)
 		{
 			for(j = 1; j <= Ysize; j++)

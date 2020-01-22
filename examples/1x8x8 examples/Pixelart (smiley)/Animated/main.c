@@ -40,24 +40,29 @@ int pixelartRight[64] =
 int main (void) 
 {
 	initPL9823();
+	int del = 6000000;
 	
 	while(1)
 	{
+		clearAll();
 		makePixelArt(1, pixelart, 8, 8);
 		updateLeds();
-		delay(6000000);
+		delay(del);
 		
+		clearAll();
 		makePixelArt(1, pixelartRight, 8, 8);
 		updateLeds();
-		delay(6000000);
+		delay(del);
 		
+		clearAll();
 		makePixelArt(1, pixelart, 8, 8);
 		updateLeds();
-		delay(6000000);
+		delay(del);
 		
+		clearAll();
 		makePixelArt(1, pixelartLeft, 8, 8);
 		updateLeds();
-		delay(6000000);
+		delay(del);
 		
 	}
 	

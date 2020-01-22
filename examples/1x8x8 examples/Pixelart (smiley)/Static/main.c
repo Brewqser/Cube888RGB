@@ -17,6 +17,8 @@ int main (void)
 {
 	initPL9823();
 	
+	clearAll();
+	
 	makePixelArt(1, pixelart, 8, 8);
 	
 	updateLeds();

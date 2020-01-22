@@ -4,7 +4,7 @@ int main (void)
 {
 	initPL9823();
 		
-	int tmp = 0x202000;
+	int tmp = 0x0f0000;
 	int i=1;
 	int j=1;
 	int k=1;

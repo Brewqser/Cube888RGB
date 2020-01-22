@@ -12,6 +12,7 @@ struct RGB colorTable[Ysize][Zsize];
 
 void blink()
 {
+	clearAll();
 	int i;
 	int j;
 	for (i=1;i<=Ysize;i++)
@@ -37,7 +38,6 @@ void dim()
 			colorTable[i-1][j-1].b /= 2;
 		}
 	}
-	updateLeds();
 }
 
 int main (void) 
@@ -69,7 +69,5 @@ int main (void)
 		dim(); // make blink effect;
 		
 		delay(1000000);
-		
 	}
-	
 }

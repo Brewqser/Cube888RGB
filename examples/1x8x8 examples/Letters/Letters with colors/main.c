@@ -6,7 +6,7 @@ int main (void)
 {
 	initPL9823();
 	initLetters();
-	makeTape("I < ele  ");
+	makeTape("I < Ele  ");
 	int i= tapeLength - 2;
 	textColorsTable[0] = 0x0000ff;
 	textColorsTable[2] = 0xff0000; 

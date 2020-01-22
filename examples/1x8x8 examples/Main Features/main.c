@@ -3,6 +3,7 @@
 int main (void) 
 {
 	initPL9823();
+	int del = 10000000;
 	
 	while(1)
 	{
@@ -10,15 +11,15 @@ int main (void)
 		setRGB(1,1,2,0,31,31);
 		setWhite(1,1,3);
 		updateLeds();
-		delay(100000);
+		delay(del);
 		
 		clear(1,1,2);
 		updateLeds();
-		delay(100000);
+		delay(del);
 		
 		clearAll();
 		updateLeds();
-		delay(100000);
+		delay(del);
 	}
 }
 

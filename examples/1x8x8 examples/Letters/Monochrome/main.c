@@ -6,13 +6,13 @@ int main (void)
 	
 	int i=0;
 	initLetters();
-	makeTape("I < ELE   ");
+	makeTape("I < Ele  ");
 	i=tapeLength - 2;
 
 	while(1)
 	{
 		clearAll();
-    		showTape(1,i,0x0000ff);
+    showTape(1,i,0x0000ff);
 		updateLeds();
 		i++;
 		i%=tapeLength;
