@@ -103,7 +103,7 @@ void setWhite(int x, int y, int z)
 
 void clear(int x, int y, int z)
 {
-	int color = 0;
+	int color = 0xffffff;
 	unsigned int tmp = 0;
 	int i = 0;
 	
@@ -123,7 +123,7 @@ void clear(int x, int y, int z)
 		and here |= is =
 		--------------------------------------------------------------------------*/
 		
-		data[i] = (((color & (1 << (23 - tmp)) ? 1 : 0)) << pinTable[x-1]); 
+		data[i] &= ~(((color & (1 << (23 - tmp)) ? 1 : 0)) << pinTable[x-1]); 
 	}
 }
 
