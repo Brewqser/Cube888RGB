@@ -105,42 +105,42 @@ void prepareTiles(void)
 	}
 	tailTable[0].x=1;
 	tailTable[0].y=1;
-	tailTable[0].color=0x0000ff;
+	tailTable[0].color=0x000007;
 	oT[1][1] = 1;
 	
 	tailTable[1].x=1;
 	tailTable[1].y=2;
-	tailTable[1].color=0x00ff00;
+	tailTable[1].color=0x000700;
 	oT[1][2] = 1;
 	
 	tailTable[2].x=1;
 	tailTable[2].y=3;
-	tailTable[2].color=0xff0000;
+	tailTable[2].color=0x070000;
 	oT[1][3] = 1;
 	
 	tailTable[3].x=1;
 	tailTable[3].y=4;
-	tailTable[3].color=0x00ffff;
+	tailTable[3].color=0x000707;
 	oT[1][4] = 1;
 	
 	tailTable[4].x=2;
 	tailTable[4].y=1;
-	tailTable[4].color=0xffff00;
+	tailTable[4].color=0x070700;
 	oT[2][1] = 1;
 	
 	tailTable[5].x=2;
 	tailTable[5].y=2;
-	tailTable[5].color=0xff00ff;
+	tailTable[5].color=0x070007;
 	oT[2][2] = 1;
 	
 	tailTable[6].x=2;
 	tailTable[6].y=3;
-	tailTable[6].color=0xffffff;
+	tailTable[6].color=0x070707;
 	oT[2][3] = 1;
 	
 	tailTable[7].x=2;
 	tailTable[7].y=4;
-	tailTable[7].color=0x3216ff;
+	tailTable[7].color=0x000713;
 	oT[2][4] = 1;
 }
 

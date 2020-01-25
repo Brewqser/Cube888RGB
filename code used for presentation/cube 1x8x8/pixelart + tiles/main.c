@@ -20,7 +20,7 @@ int main (void)
 	
 	int slider;
 	int pressed = 0;
-	int del = 1000000;
+	int del = 2000000;
 	
 	
 	while(1)

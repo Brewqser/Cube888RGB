@@ -73,12 +73,12 @@ void update()
 	
 	for(i=0;i<size;i++)
 	{
-		if(snake[i].x != 0 && snake[i].y != 0) setColor(1,snake[i].x ,snake[i].y, 0x00ff00);
+		if(snake[i].x != 0 && snake[i].y != 0) setColor(1,snake[i].x ,snake[i].y, 0x000f00);
 	}
 	
-	setColor(1,snake[0].x ,snake[0].y, 0x0000ff);
+	setColor(1,snake[0].x ,snake[0].y, 0x00000f);
 	
-	setColor(1,food.x ,food.y, 0xff0000);
+	setColor(1,food.x ,food.y, 0x0f0000);
 	
 	updateLeds();
 }
@@ -93,11 +93,11 @@ void checkDir()
 	{
 		if(slider <= 50)
 		{
-			newdir = 2;
+			newdir = 1;
 		}
 		if(slider > 50)
 		{
-			newdir = 1;
+			newdir = 2;
 		}
 	}
 }

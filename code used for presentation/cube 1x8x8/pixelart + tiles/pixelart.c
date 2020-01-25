@@ -34,7 +34,7 @@ void stepPixelart(void)
 			updateLeds();
 			break;
 	}
-	delay(600000);
+	delay(1400000);
 	
 	countPA++;
 	countPA%=framesPA;

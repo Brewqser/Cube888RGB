@@ -32,21 +32,28 @@ void updateLeds(void)
 	!!! interapts should be disabled when you updating LEDs !!!
 	--------------------------------------------------------------------------*/
 	
+	int i=0;
 	int j=-1; // tmp value for iteration
+	int tmp = 0;
 	
 	__disable_irq();	// desable interrupts 
-
-	while (j < (Ysize * Zsize * 24) - 1)
+	
+	for(i=0;i<Xsize;i++)
 	{
-		PTB->PDOR = 255;
-		PTB->PDOR = 255;
-		PTB->PDOR = data[j+1];
-		j++;
-		PTB->PDOR = data[j];
-		PTB->PDOR = data[j];
-		PTB->PDOR = data[j];
-		PTB->PDOR = 0;
-		PTB->PDOR = 0;
+		tmp = 1UL << pinTable[i];
+		j=-1;
+		while (j < (Ysize * Zsize * 24) - 1)
+		{
+			PTB->PDOR = tmp;
+			PTB->PDOR = tmp;
+			PTB->PDOR = data[j+1] & tmp ;
+			j++;
+			PTB->PDOR = data[j] & tmp ;
+			PTB->PDOR = data[j] & tmp ;
+			PTB->PDOR = data[j] & tmp ;
+			PTB->PDOR = 0;
+			PTB->PDOR = 0;
+		}
 	}
 
 	__enable_irq();	// enable interrupts
@@ -96,9 +103,6 @@ void setWhite(int x, int y, int z)
 
 void clear(int x, int y, int z)
 {
-	/*--------------------------------------------------------------------------
-	seting 0 (clear) on diode with position x y z 
-	--------------------------------------------------------------------------*/
 	int color = 0;
 	unsigned int tmp = 0;
 	int i = 0;
