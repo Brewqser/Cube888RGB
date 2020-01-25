@@ -7,6 +7,10 @@ The goal of the project is to create a relatively simple library to support prog
 # PL9823 datasheet
 
 [See datasheet](https://cdn.instructables.com/ORIG/FW0/YN1X/IHDUL683/FW0YN1XIHDUL683.pdf)
+
+# Video
+
+[See video](https://we.tl/t-d3FtlOUYIS)
  
 # User Manual
 
