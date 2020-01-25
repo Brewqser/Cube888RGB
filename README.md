@@ -10,7 +10,7 @@ The goal of the project is to create a relatively simple library to support prog
 
 # Video
 
-[See video](https://we.tl/t-d3FtlOUYIS)
+[See video](https://youtu.be/WHs9IJNlvSA)
  
 # User Manual
 
